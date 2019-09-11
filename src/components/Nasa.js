@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Nasacard from "./NasaCard";
+import NasaCard from "./NasaCard";
 import axios from "axios";
 
 export default function Nasa() {
   const [nasa, setNasa] = useState();
-  //   const [breed, setBreed] = useState("mix");
 
   useEffect(() => {
     axios
@@ -14,16 +13,13 @@ export default function Nasa() {
       .then(response => {
         const nasainfo = response;
         console.log(nasainfo);
-        setNasa(nasainfo.data.url);
+        setNasa(nasainfo.data);
       })
       .catch(error => {
         console.log("Sorry no space", error);
       });
   }, []);
 
-  return (
-    <div className="container">
-      <img src={`${nasa}`} />
-    </div>
-  );
+  console.log(nasa);
+  return <div className="container">{<NasaCard info={nasa} />}</div>;
 }
