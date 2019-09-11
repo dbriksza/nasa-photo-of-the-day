@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import NasaCard from "./NasaCard";
 import axios from "axios";
 
-export default function Nasa() {
+export default async function Nasa() {
   const [nasa, setNasa] = useState();
 
   useEffect(() => {
-    axios
+    await axios
       .get(
         `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2012-03-14`
       )
