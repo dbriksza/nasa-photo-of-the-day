@@ -3,7 +3,7 @@ import NasaCard from "./NasaCard";
 import axios from "axios";
 
 export default function Nasa() {
-  const [nasa, setNasa] = useState();
+  const [nasa, setNasa] = useState([]);
 
   useEffect(() => {
     console.log("useEffect is called");
